@@ -78,7 +78,17 @@ int32_t main()
  
  int n;
  cin>>n;
- cout<<countorders(n)<<endl;
+ vector<vector<int>>ans;
+ vector<int>res(n,-1);
+ for(int i=0;i<res.size();i++)
+ {
+     cin>>res[i];
+ }
+ for(int i=0;i<res.size();i++)
+ {
+     cout<<res[i]<<endl;
+ }
+ 
 
 
 
