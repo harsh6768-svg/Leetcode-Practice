@@ -32,18 +32,48 @@ void c_p_p()
 
 }
 /* ******* Your Functions Below ******** */
-int countorders(int n)
+#include <stdio.h>
+int main()
 {
-    int ans=1;
-    n*=2;
-    while(n != 0)
+    long n;
+    scanf("%ld", &n);
+    long a[n];
+    for (int i = 0; i < n; i++)
     {
-        ans*=n*(n-1)/2;
-        ans%=mod;
-        n-=2;
-
+        scanf("%ld", &a[i]);
     }
-    return ans%mod;
+    long iron_man = 0, captian_america = 0;
+    for (int i = 0; i <= n / 2; i++)
+    {
+        if (a[i] > a[n - 1 - i])
+        {
+            if(i%2 == 0)
+            {
+                iron_man += a[i];
+                captian_america += a[n - 1 - i];
+                
+            }
+            else{
+                iron_man += a[n - 1 - i];
+                captian_america += a[i];
+            }
+        }
+        else
+        {
+            if(i%2 == 0)
+            {
+                iron_man += a[n - 1 - i];
+                captian_america += a[i];
+            }
+            else{
+                iron_man += a[i];
+                captian_america += a[n - 1 - i];
+            }
+            
+        }
+    }
+    int d =iron_man - captian_america;
+    d<0?printf("%d",d*-1):printf("%d",d);
 }
 
 
